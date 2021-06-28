@@ -8,7 +8,7 @@ case "$1" in
     ip=$(hostname -I | awk '{print $1}')
 
     item="Monitor Source: "
-    list=$(pactl list | grep "$item")
+    list=$(pactl list | grep "$item" | head -1)
     source=${list:${#item}+1}
 
     $0 stop 
